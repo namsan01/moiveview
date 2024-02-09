@@ -19,6 +19,7 @@ a {
   text-decoration: none;
 }
 html {
+  height: 1080px;
   font-size: 10px;
 }
 body {
