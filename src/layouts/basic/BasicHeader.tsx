@@ -3,15 +3,14 @@ import React from "react";
 import useCustomMove from "../../hooks/useCustomMove";
 
 const HeaderWrap = styled.div`
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   width: 100%;
-  height: 80px;
+  height: 78px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 50px;
+  padding: 39px;
   font-size: 25px;
   background: #0f0123;
   color: #d9d9d9;
@@ -51,7 +50,7 @@ const HeaderRight = styled.div`
 `;
 
 const BasicHeader = () => {
-  const { moveToMain, moveToMovie } = useCustomMove();
+  const { moveToMain, moveToMovie, moveToReview } = useCustomMove();
   return (
     <HeaderWrap>
       <HeaderLeft>
@@ -60,7 +59,7 @@ const BasicHeader = () => {
       <HeaderRight>
         <button onClick={() => moveToMain()}>Home</button>
         <button onClick={() => moveToMovie()}>Movie</button>
-        <button>Review</button>
+        <button onClick={() => moveToReview()}>Review</button>
         <button>Board</button>
       </HeaderRight>
     </HeaderWrap>

@@ -3,16 +3,22 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+  ],
   overrides: [
     {
-      env: {
-        node: true,
-      },
-      files: [".eslintrc.{js,cjs}"],
+      files: ["*.ts", "*.tsx"],
+      parser: "@typescript-eslint/parser",
       parserOptions: {
-        sourceType: "script",
+        ecmaVersion: 12,
+        sourceType: "module",
       },
+      plugins: ["@typescript-eslint"],
+      rules: {},
     },
   ],
   parserOptions: {

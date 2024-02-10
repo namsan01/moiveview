@@ -3,7 +3,7 @@ import React from "react";
 
 const FooterWrap = styled.div`
   width: 100%;
-  height: 200px;
+  height: 60px;
   background: #0f0123;
   display: flex;
   margin: 0;
@@ -18,6 +18,10 @@ const FooterHead = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  @media screen and (max-width: 849) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 const FooterHeadLeft = styled.div`
@@ -29,6 +33,9 @@ const FooterHeadLeft = styled.div`
   }
   @media screen and (max-width: 1248px) {
     font-size: 0.8rem;
+  }
+  @media screen and (max-width: 849px) {
+    font-size: 0.7rem;
   }
 `;
 

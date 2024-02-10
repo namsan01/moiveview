@@ -19,7 +19,12 @@ export const useCustomMove = () => {
   const moveToMovie = () => {
     navigate("/movie");
   };
+  // 리뷰페이지로 이동
+  const moveToReview = () => {
+    navigate("/review");
+  };
   //쿼리알아내기
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [urlSearchParams, setUrlSearchParams] = useSearchParams();
   // 현재 목록의 페이지 번호
   const page = urlSearchParams.get("page")
@@ -28,7 +33,7 @@ export const useCustomMove = () => {
   // 페이지당 보여줄 개수
   const size = urlSearchParams.get("size")
     ? parseInt(urlSearchParams.get("size"))
-    : 10;
+    : 4;
   // 쿼리스트링 만들기
   const queryStrDeafult = createSearchParams({
     page,
@@ -38,7 +43,7 @@ export const useCustomMove = () => {
   //목록으로가기 기능 만들기
   //pageParam이 있으면 pageParam으로 이동
   //pageParam이 없으면 1페이지로 이동
-  const moveToList = pageParam => {
+  const moveToMovieList = pageParam => {
     let queryStr = "";
     if (pageParam) {
       const pageNum = getNum(pageParam.page, page);
@@ -51,13 +56,13 @@ export const useCustomMove = () => {
     } else {
       queryStr = queryStrDeafult;
     }
-    navigate({ pathname: "../list", search: queryStr });
+    navigate({ pathname: "../movie", search: queryStr });
   };
 
   // 상세 내용 보기
-  const moveToRead = tno => {
+  const moveToDetail = id => {
     navigate({
-      pathname: `../read/${tno}`,
+      pathname: `../movie/detail/${id}`,
       search: queryStrDeafult,
     });
   };
@@ -73,8 +78,9 @@ export const useCustomMove = () => {
     size,
     moveToMain,
     moveToMovie,
-    moveToList,
-    moveToRead,
+    moveToReview,
+    moveToMovieList,
+    moveToDetail,
     moveToPrev,
     moveToItem,
   };
