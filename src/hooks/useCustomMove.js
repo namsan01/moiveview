@@ -20,8 +20,8 @@ export const useCustomMove = () => {
     navigate("/movie");
   };
   // 리뷰페이지로 이동
-  const moveToReview = () => {
-    navigate("/review");
+  const moveToRecommend = () => {
+    navigate("/recommend");
   };
   //쿼리알아내기
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -78,7 +78,7 @@ export const useCustomMove = () => {
     size,
     moveToMain,
     moveToMovie,
-    moveToReview,
+    moveToRecommend,
     moveToMovieList,
     moveToDetail,
     moveToPrev,

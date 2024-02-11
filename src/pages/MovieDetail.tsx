@@ -14,9 +14,15 @@ const DetailWrap = styled.div`
   min-height: 780px;
   background: #d9d9d9;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+  @media screen and (max-width: 1248px) {
+    justify-content: space-around;
+
+    -webkit-line-clamp: 2; // 원하는 라인수
+    -webkit-box-orient: vertical;
+  }
 `;
 
 const DetailPrev = styled.div`
@@ -29,11 +35,27 @@ const DetailPrev = styled.div`
     height: 50px;
     transform: rotate(270deg);
   }
+  @media screen and (max-width: 1248px) {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
 `;
 
 const DetailLeft = styled.div`
   img {
     width: 350px;
+  }
+  @media screen and (max-width: 1248px) {
+    img {
+      width: 300px;
+    }
+  }
+  @media screen and (max-width: 850px) {
+    img {
+      width: 200px;
+    }
   }
 `;
 
@@ -54,8 +76,31 @@ const DetailRight = styled.div`
     font-size: 2.5rem;
   }
   @media screen and (max-width: 1248px) {
+    h2 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 9;
+      -webkit-box-orient: vertical;
+    }
     width: 500px;
-    height: 350px;
+    height: 450px;
+    padding: 15px;
+  }
+  @media screen and (max-width: 850px) {
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 9;
+      -webkit-box-orient: vertical;
+    }
+    width: 400px;
+    height: 300px;
     padding: 15px;
   }
 `;

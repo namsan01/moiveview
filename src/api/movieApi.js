@@ -29,7 +29,7 @@ export const getNowMovie = async (
 };
 
 export const getMyMovie = async (successFn, failFn, errorFn) => {
-  const host = `https://api.themoviedb.org/3/account/20976968/favorite/movies?api_key=${API_Key}&language=ko-KR&page=1&sort_by=created_at.desc`;
+  const host = `https://api.themoviedb.org/3/account/20976968/favorite/movies?api_key=${API_Key}&language=ko-KR&page=1&session_id=3a3f233ca543d402e2e37b6248aaa4befeae83ba&sort_by=created_at.asc`;
   try {
     const res = await axios.get(host);
     const status = res.status.toString();

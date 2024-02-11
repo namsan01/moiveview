@@ -9,6 +9,7 @@ import {
   MovieHeadTxt,
   MovieMain,
   MoviePagination,
+  MovieTap,
 } from "../styles/moviepage/moviePageStyle";
 
 export type Movie = {
@@ -23,14 +24,13 @@ export type MovieData = {
   results: Movie[];
 };
 
-const ReviewPage = () => {
+const RecommendPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState<Movie[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
 
   const fetchData = () => {
-    console.log("되고는있니?");
     try {
       const successFn = (data: MovieData) => {
         setMovies(data.results);
@@ -56,7 +56,7 @@ const ReviewPage = () => {
     fetchData();
   }, []);
 
-  const MoviesPerPage = 4 * 2;
+  const MoviesPerPage = 6 * 2;
   const indexOfLastMovie = currentPage * MoviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - MoviesPerPage;
   const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
@@ -71,32 +71,34 @@ const ReviewPage = () => {
     <BasicLayout>
       <MoiveWrap>
         <div>
-          <MovieHeadTxt>
-            <h1>요즘 영화</h1>
-          </MovieHeadTxt>
+          <MovieHeadTxt>{!isLoading && <h1>요즘 영화</h1>}</MovieHeadTxt>
         </div>
         <MovieMain>
-          {!isLoading &&
-            currentMovies.map((movie: Movie) => (
-              <div key={movie.id}>
-                <MovieBox
-                  movie={movie}
-                  onClick={() => onClickMoveToDetail(movie)}
-                />
-              </div>
-            ))}
+          <MovieTap>
+            {!isLoading &&
+              currentMovies.map((movie: Movie) => (
+                <div key={movie.id}>
+                  <MovieBox
+                    movie={movie}
+                    onClick={() => onClickMoveToDetail(movie)}
+                  />
+                </div>
+              ))}
+          </MovieTap>
         </MovieMain>
         <MoviePagination>
-          <Pagination
-            current={currentPage}
-            total={movies.length}
-            pageSize={MoviesPerPage}
-            onChange={paginate}
-          />
+          {!isLoading && movies.length > 13 && (
+            <Pagination
+              current={currentPage}
+              total={movies.length}
+              pageSize={MoviesPerPage}
+              onChange={paginate}
+            />
+          )}
         </MoviePagination>
       </MoiveWrap>
     </BasicLayout>
   );
 };
 
-export default ReviewPage;
+export default RecommendPage;

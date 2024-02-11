@@ -11,7 +11,9 @@ import {
   MovieHeadTxt,
   MovieMain,
   MoviePagination,
+  MovieTap,
 } from "../styles/moviepage/moviePageStyle";
+import MovieAnimation from "../components/animation/MovieAnimation";
 
 export type Movie = {
   id: number;
@@ -51,6 +53,7 @@ const MoviePage = () => {
       const successFn = (data: MovieData) => {
         setMovies(data.results);
         setIsLoading(false);
+        console.log(data);
       };
 
       const failFn = (error: Error) => {
@@ -71,7 +74,7 @@ const MoviePage = () => {
     fetchData(categoryIndex);
   }, [categoryIndex]);
 
-  const MoviesPerPage = 4 * 2;
+  const MoviesPerPage = 6 * 2;
   const indexOfLastMovie = currentPage * MoviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - MoviesPerPage;
   const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
@@ -86,40 +89,43 @@ const MoviePage = () => {
     <BasicLayout>
       <MoiveWrap>
         <div>
-          <MovieHeadTxt>
-            <h1>요즘 영화</h1>
-          </MovieHeadTxt>
+          <MovieHeadTxt>{!isLoading && <MovieAnimation />}</MovieHeadTxt>
         </div>
         <MovieHead>
-          {category_List.map(category => (
-            <div key={category.id}>
-              <MovieButton
-                category={category}
-                onClick={setCategory}
-                isSelected={category.id === categoryIndex}
-              />
-            </div>
-          ))}
-        </MovieHead>
-
-        <MovieMain>
           {!isLoading &&
-            currentMovies.map((movie: Movie) => (
-              <div key={movie.id}>
-                <MovieBox
-                  movie={movie}
-                  onClick={() => onClickMoveToDetail(movie)}
+            category_List.map(category => (
+              <div key={category.id}>
+                <MovieButton
+                  category={category}
+                  onClick={setCategory}
+                  isSelected={category.id === categoryIndex}
                 />
               </div>
             ))}
+        </MovieHead>
+
+        <MovieMain>
+          <MovieTap>
+            {!isLoading &&
+              currentMovies.map((movie: Movie) => (
+                <div key={movie.id}>
+                  <MovieBox
+                    movie={movie}
+                    onClick={() => onClickMoveToDetail(movie)}
+                  />
+                </div>
+              ))}
+          </MovieTap>
         </MovieMain>
         <MoviePagination>
-          <Pagination
-            current={currentPage}
-            total={movies.length}
-            pageSize={MoviesPerPage}
-            onChange={paginate}
-          />
+          {!isLoading && (
+            <Pagination
+              current={currentPage}
+              total={movies.length}
+              pageSize={MoviesPerPage}
+              onChange={paginate}
+            />
+          )}
         </MoviePagination>
       </MoiveWrap>
     </BasicLayout>

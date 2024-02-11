@@ -9,7 +9,7 @@ export const MoiveWrap = styled.div`
 export const MovieHeadTxt = styled.div`
   display: flex;
   justify-content: center;
-  height: 30px;
+  height: 200px;
   h1 {
     font-size: 25px;
   }
@@ -18,18 +18,31 @@ export const MovieHeadTxt = styled.div`
 export const MovieHead = styled.div`
   display: flex;
   justify-content: center;
-  width: 1440px;
+  width: 100%;
   height: 200px;
   gap: 50px;
-  margin: 0 auto;
 `;
 export const MovieMain = styled.div`
-  width: 1440px;
+  width: 100%;
   height: auto;
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+
+  @media screen and (max-width: 1500px) {
+    justify-content: center;
+    gap: 50px;
+  }
+  @media screen and (max-width: 1450px) {
+    justify-content: center;
+  }
+`;
+
+export const MovieTap = styled.div`
+  width: 1440px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
 export const MovieCateWrap = styled.div`
@@ -54,7 +67,7 @@ export const MovieCateWrap = styled.div`
 `;
 
 export const MovieBoxWrap = styled.div`
-  width: 288px;
+  width: 200px;
   height: 360px;
   border-radius: 10px;
   margin-bottom: 50px;
@@ -66,18 +79,44 @@ export const MovieBoxWrap = styled.div`
     width: 100%;
     height: 250px;
   }
+  @media screen and (max-width: 1600px) {
+    width: 300px;
+  }
+  @media screen and (max-width: 1250px) {
+    width: 400px;
+  }
+  @media screen and (max-width: 1350px) {
+    width: 400px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+  }
+  @media screen and (max-width: 1050px) {
+    width: 300px;
+  }
 `;
 
 export const MovieBoxInfo = styled.div`
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   h1 {
-    margin: 0.3em 0;
+    margin: 0.2em 0;
+    font-size: 2rem;
   }
   h2 {
     text-overflow: ellipsis;
     overflow: hidden;
     word-break: break-word;
     display: -webkit-box;
-    margin-bottom: 5px;
+  }
+  @media screen and (max-width: 1600px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+    }
   }
 `;
 

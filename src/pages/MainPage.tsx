@@ -1,5 +1,5 @@
 import React from "react";
-import Animation from "../components/animation/Animation";
+import Animation from "../components/animation/MainAnimation";
 import MainBoxInfo from "../components/main/MovieBoxInfo";
 import useCustomMove from "../hooks/useCustomMove";
 import BasicLayout from "../layouts/BasicLayout";
@@ -11,7 +11,7 @@ import {
 } from "../styles/mainpage/mainPageStyle";
 
 const MainPage = () => {
-  const { moveToMovie } = useCustomMove();
+  const { moveToMovie, moveToRecommend } = useCustomMove();
   return (
     <BasicLayout>
       <MainWrap>
@@ -24,7 +24,7 @@ const MainPage = () => {
           {/* 버튼 영역 */}
           <MainBoxBtWrap>
             <button onClick={() => moveToMovie()}>상영작 보러가기</button>
-            <button>추천작 보러가기</button>
+            <button onClick={() => moveToRecommend()}>추천작 보러가기</button>
           </MainBoxBtWrap>
         </MainRight>
       </MainWrap>

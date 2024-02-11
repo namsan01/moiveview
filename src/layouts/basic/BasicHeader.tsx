@@ -32,7 +32,7 @@ const HeaderRight = styled.div`
   gap: 30px;
   background: transparent;
   button {
-    width: 100px;
+    width: 120px;
     height: 40px;
     border: none;
     font-size: 2.2rem;
@@ -50,7 +50,7 @@ const HeaderRight = styled.div`
 `;
 
 const BasicHeader = () => {
-  const { moveToMain, moveToMovie, moveToReview } = useCustomMove();
+  const { moveToMain, moveToMovie, moveToRecommend } = useCustomMove();
   return (
     <HeaderWrap>
       <HeaderLeft>
@@ -59,7 +59,7 @@ const BasicHeader = () => {
       <HeaderRight>
         <button onClick={() => moveToMain()}>Home</button>
         <button onClick={() => moveToMovie()}>Movie</button>
-        <button onClick={() => moveToReview()}>Review</button>
+        <button onClick={() => moveToRecommend()}>Recomend</button>
         <button>Board</button>
       </HeaderRight>
     </HeaderWrap>

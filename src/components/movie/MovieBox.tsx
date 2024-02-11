@@ -21,9 +21,13 @@ const MovieBox: React.FC<MovieCardProps> = ({ movie, onClick }) => {
       <MovieBoxWrap>
         <img src={`${image_Url}${movie.poster_path}`} alt={movie.title} />{" "}
         <MovieBoxInfo>
-          <h1>{movie.title}</h1>
-          <h2>{movie.release_date}</h2>
-          <h2>{`평점 : ${movie.vote_average.toFixed(2)}`}</h2>
+          <div>
+            <h1>{movie.title}</h1>
+          </div>
+          <div>
+            <h2>{`개봉 : ${movie.release_date}`}</h2>
+            <h2>{`평점 : ${movie.vote_average.toFixed(2)}`}</h2>
+          </div>
         </MovieBoxInfo>
       </MovieBoxWrap>
     </div>
