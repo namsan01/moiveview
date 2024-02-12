@@ -4,7 +4,7 @@ import React from "react";
 const FooterWrap = styled.div`
   width: 100%;
   height: 60px;
-  background: #0f0123;
+  background: #0d253f;
   display: flex;
   margin: 0;
 `;

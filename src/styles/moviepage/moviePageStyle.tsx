@@ -3,14 +3,25 @@ import styled from "@emotion/styled";
 export const MoiveWrap = styled.div`
   width: 100%;
   min-height: 780px;
-  background: #d9d9d9;
+  background: #fff;
 `;
 
 export const MovieHeadTxt = styled.div`
   display: flex;
   justify-content: center;
-  height: 200px;
+  align-items: center;
+  flex-direction: column;
+  height: 260px;
   h1 {
+    font-size: 25px;
+  }
+`;
+
+export const MovieHeadDate = styled.div`
+  display: flex;
+  justify-content: center;
+  h1 {
+    margin: 0;
     font-size: 25px;
   }
 `;
@@ -21,6 +32,7 @@ export const MovieHead = styled.div`
   width: 100%;
   height: 200px;
   gap: 50px;
+  font-size: 20px;
 `;
 export const MovieMain = styled.div`
   width: 100%;
@@ -52,12 +64,15 @@ export const MovieCateWrap = styled.div`
   align-items: center;
   background: transparent;
   text-align: center;
-  font-size: 20px;
+  font-size: 2rem;
+  color: #4f4f51;
+  font-weight: 700;
   img {
     width: 100px;
     height: 100px;
     border-radius: 20px;
     background: transparent;
+    margin-bottom: 5px;
   }
 
   .selected img {
@@ -73,7 +88,7 @@ export const MovieBoxWrap = styled.div`
   margin-bottom: 50px;
   margin-right: 20px;
   padding: 10px;
-  background: #4f4f51;
+  background: #868686;
   cursor: pointer;
   img {
     width: 100%;

@@ -3,7 +3,7 @@ import {
   MovieBoxInfo,
   MovieBoxWrap,
 } from "../../styles/moviepage/moviePageStyle";
-import { Movie } from "../../pages/MoviePage";
+import { Movie } from "../../pages/movie/MoviePage";
 
 type MovieCardProps = {
   movie: Movie;

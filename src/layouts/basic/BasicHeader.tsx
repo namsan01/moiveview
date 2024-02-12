@@ -12,7 +12,7 @@ const HeaderWrap = styled.div`
   align-items: center;
   padding: 39px;
   font-size: 25px;
-  background: #0f0123;
+  background: #0d253f;
   color: #d9d9d9;
   z-index: 2;
 `;
@@ -41,8 +41,9 @@ const HeaderRight = styled.div`
     cursor: pointer;
   }
   button:hover {
-    background: #595959;
+    background: #444;
     opacity: 50;
+    border-radius: 5px;
   }
   @media screen and (max-width: 1248px) {
     margin-right: 0px;
@@ -50,7 +51,8 @@ const HeaderRight = styled.div`
 `;
 
 const BasicHeader = () => {
-  const { moveToMain, moveToMovie, moveToRecommend } = useCustomMove();
+  const { moveToMain, moveToMovie, moveToRecommend, moveToBoard } =
+    useCustomMove();
   return (
     <HeaderWrap>
       <HeaderLeft>
@@ -60,7 +62,7 @@ const BasicHeader = () => {
         <button onClick={() => moveToMain()}>Home</button>
         <button onClick={() => moveToMovie()}>Movie</button>
         <button onClick={() => moveToRecommend()}>Recomend</button>
-        <button>Board</button>
+        <button onClick={() => moveToBoard()}>Board</button>
       </HeaderRight>
     </HeaderWrap>
   );

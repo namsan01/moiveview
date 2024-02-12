@@ -1,18 +1,14 @@
 import styled from "@emotion/styled";
 import React from "react";
 import { useLocation } from "react-router";
-import BasicLayout from "../layouts/BasicLayout";
+import BasicLayout from "../../layouts/BasicLayout";
 import { Movie } from "./MoviePage";
-import useCustomMove from "../hooks/useCustomMove";
-
-type MovieDetailProps = {
-  movie: Movie;
-};
+import useCustomMove from "../../hooks/useCustomMove";
 
 const DetailWrap = styled.div`
   width: 100%;
   min-height: 780px;
-  background: #d9d9d9;
+  background: #fff;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -20,7 +16,7 @@ const DetailWrap = styled.div`
   @media screen and (max-width: 1248px) {
     justify-content: space-around;
 
-    -webkit-line-clamp: 2; // 원하는 라인수
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
 `;
@@ -63,7 +59,7 @@ const DetailRight = styled.div`
   width: 700px;
   height: 525px;
   border-radius: 25px;
-  background: #fff;
+  background: #d9d9d9;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -74,6 +70,11 @@ const DetailRight = styled.div`
   }
   h2 {
     font-size: 2.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 11;
+    -webkit-box-orient: vertical;
   }
   @media screen and (max-width: 1248px) {
     h2 {
@@ -116,7 +117,7 @@ const DetailRightEtc = styled.div`
   justify-content: space-between;
 `;
 
-const MovieDetail: React.FC<MovieDetailProps> = () => {
+const MovieDetail = () => {
   const state = useLocation().state as Movie;
   const image_Url = "https://image.tmdb.org/t/p/w220_and_h330_face/";
   const { moveToPrev } = useCustomMove();

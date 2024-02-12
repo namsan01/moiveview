@@ -1,4 +1,4 @@
-export const getNum = (check, basic) => {
+export const getNum = (check: null, basic: string) => {
   if (!check) {
     return basic;
   }

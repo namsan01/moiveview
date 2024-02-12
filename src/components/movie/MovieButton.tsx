@@ -1,6 +1,6 @@
 import React from "react";
 import { MovieCateWrap } from "../../styles/moviepage/moviePageStyle";
-import { Category } from "../../pages/MoviePage";
+import { Category } from "../../pages/movie/MoviePage";
 
 type CategoryButtonProps = {
   category: Category;

@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const MainWrap = styled.div`
   width: 100%;
   height: 780px;
-  background: #d9d9d9;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -23,7 +23,7 @@ export const MainLeft = styled.div`
 export const MainRight = styled.div`
   width: 700px;
   height: 400px;
-  background: #4f4f51;
+  background: #d9d9d9;
   padding: 20px;
   @media screen and (max-width: 1248px) {
     width: 500px;
@@ -60,7 +60,7 @@ export const MainBoxBtWrap = styled.div`
   button {
     width: 150px;
     height: 60px;
-    background-color: #4f95ff;
+    background-color: #868686;
     border: none;
     border-radius: 10px;
     font-size: 15px;
@@ -68,7 +68,7 @@ export const MainBoxBtWrap = styled.div`
     cursor: pointer;
   }
   button:hover {
-    background-color: tan;
+    background-color: #444;
   }
   @media screen and (max-width: 1248px) {
     gap: 20px;

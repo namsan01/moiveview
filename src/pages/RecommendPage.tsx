@@ -11,6 +11,7 @@ import {
   MoviePagination,
   MovieTap,
 } from "../styles/moviepage/moviePageStyle";
+import RecommendAnimation from "../components/animation/RecommendAnimation";
 
 export type Movie = {
   id: number;
@@ -70,9 +71,16 @@ const RecommendPage = () => {
   return (
     <BasicLayout>
       <MoiveWrap>
-        <div>
-          <MovieHeadTxt>{!isLoading && <h1>요즘 영화</h1>}</MovieHeadTxt>
-        </div>
+        <MovieHeadTxt>
+          {!isLoading && <RecommendAnimation />}
+          {!isLoading && (
+            <div>
+              <h1 style={{ marginTop: "0px", marginBottom: "17px" }}>
+                추천영화
+              </h1>
+            </div>
+          )}
+        </MovieHeadTxt>
         <MovieMain>
           <MovieTap>
             {!isLoading &&
