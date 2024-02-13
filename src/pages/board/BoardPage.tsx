@@ -18,12 +18,31 @@ export interface Iboard {
 
 const BoardWrap = styled.div`
   width: 100%;
-  height: 780px;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 1250px) {
+    height: auto;
+  }
+`;
+
+const BoardDetail = styled.div`
+  width: 1440px;
+  height: auto;
+  @media screen and (max-width: 1560px) {
+    width: 1240px;
+  }
+  @media screen and (max-width: 1360px) {
+    width: 1040px;
+  }
+  @media screen and (max-width: 1200px) {
+    width: 840px;
+  }
+  @media screen and (max-width: 1000px) {
+    width: 640px;
+  }
+  @media screen and (max-width: 1250px) {
     height: auto;
   }
 `;
@@ -50,7 +69,7 @@ const BoardList = styled.div`
     border-left: 1px solid #000;
     border-right: 1px solid #000;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 1250px) {
     height: auto;
   }
 `;
@@ -59,7 +78,7 @@ const BoardTxt = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1440px;
+  width: 100%;
   height: 71px;
   font-size: 25px;
   font-weight: 700;
@@ -91,9 +110,9 @@ const BoardBt = styled.div`
   }
 `;
 function BoardPage() {
-  const [page, setPage] = useState(1); // 페이지 번호
+  const [page, setPage] = useState(1);
   const limit = useRef<number>(10); // 화면에 보여줄 게시판 글 수
-  const [posts, setPosts] = useState<Iboard[]>([]); // DB에 저장한 글
+  const [posts, setPosts] = useState<Iboard[]>([]);
   const { moveToWrite } = useCustomMove();
   const navigate = useNavigate();
 
@@ -101,7 +120,7 @@ function BoardPage() {
     fetchBoard().then(data => {
       const context = data.docs.map((doc: DocumentData) => ({
         ...doc.data(),
-      })) as Iboard[]; // 데이터를 Iboard 타입으로 형변환
+      })) as Iboard[];
       setPosts(context);
     });
     return () => {
@@ -110,7 +129,7 @@ function BoardPage() {
   }, []);
 
   const offset = (page - 1) * limit.current;
-
+  const currentBoards = posts.slice(offset, offset + limit.current);
   const columns = [
     {
       title: "제목",
@@ -143,34 +162,36 @@ function BoardPage() {
   return (
     <BasicLayout>
       <BoardWrap>
-        <BoardTxt>영화추천 게시판</BoardTxt>
-        <BoardListWrap>
-          <BoardList>
-            <Table
-              dataSource={posts.slice(offset, offset + limit.current)}
-              columns={columns}
-              onRow={(record: Iboard) => ({
-                onClick: () => handleRowClick(record),
-              })}
-              pagination={{
-                pageSize: limit.current,
-                current: page,
-                total: posts.length,
-                onChange: setPage,
-                style: {
-                  display: "flex",
-                  justifyContent: "center",
-                  border: "#000",
-                },
-              }}
-            />
-          </BoardList>
-        </BoardListWrap>
-        <BoardBtWrap>
-          <BoardBt>
-            <button onClick={() => moveToWrite()}>추가하기</button>
-          </BoardBt>
-        </BoardBtWrap>
+        <BoardDetail>
+          <BoardTxt>영화추천 게시판</BoardTxt>
+          <BoardListWrap>
+            <BoardList>
+              <Table
+                dataSource={currentBoards}
+                columns={columns}
+                onRow={(record: Iboard) => ({
+                  onClick: () => handleRowClick(record),
+                })}
+                pagination={{
+                  pageSize: limit.current,
+                  current: page,
+                  total: posts.length,
+                  onChange: setPage,
+                  style: {
+                    display: "flex",
+                    justifyContent: "center",
+                    border: "#000",
+                  },
+                }}
+              />
+            </BoardList>
+          </BoardListWrap>
+          <BoardBtWrap>
+            <BoardBt>
+              <button onClick={() => moveToWrite()}>추가하기</button>
+            </BoardBt>
+          </BoardBtWrap>
+        </BoardDetail>
       </BoardWrap>
     </BasicLayout>
   );

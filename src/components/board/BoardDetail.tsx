@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { useLocation } from "react-router-dom";
-import { Iboard } from "../../pages/board/BoardPage";
-import BasicLayout from "../../layouts/BasicLayout";
 import useCustomMove from "../../hooks/useCustomMove";
+import BasicLayout from "../../layouts/BasicLayout";
+import { Iboard } from "../../pages/board/BoardPage";
 
 const BoardDetailWrap = styled.div`
   width: 100%;
@@ -13,15 +13,30 @@ const BoardDetailWrap = styled.div`
   flex-direction: column;
 `;
 
-const BoardTxtInfo = styled.div`
+const BoardDeatailWrap = styled.div`
   width: 100%;
-  height: 190px;
+  height: auto;
+  display: flex;
+  justify-content: center;
 `;
 const BoardDetailInfo = styled.div`
   width: 1440px;
   height: auto;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  @media screen and (max-width: 1560px) {
+    width: 1240px;
+  }
+  @media screen and (max-width: 1360px) {
+    width: 1040px;
+  }
+  @media screen and (max-width: 1200px) {
+    width: 840px;
+  }
+  @media screen and (max-width: 1000px) {
+    width: 640px;
+  }
 `;
 
 const BoardTitle = styled.div`
@@ -41,16 +56,21 @@ const BoardTitle = styled.div`
 
 const BoardUser = styled.div`
   display: flex;
+  width: 100%;
   height: 60px;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid #999;
   gap: 30px;
+  p {
+    font-size: 1.8rem;
+  }
 `;
 
 const BoardMain = styled.div`
   display: flex;
+  width: 100%;
   justify-content: flex-start;
   height: 350px;
   border-bottom: 1px solid #000;
@@ -62,6 +82,7 @@ const BoardMain = styled.div`
 `;
 
 const BoardBtWrap = styled.div`
+  width: 100%;
   display: flex;
   justify-content: center;
   height: 90px;
@@ -86,22 +107,23 @@ function BoardDetail() {
   return (
     <BasicLayout>
       <BoardDetailWrap>
-        <BoardTxtInfo></BoardTxtInfo>
-        <BoardDetailInfo>
-          <BoardTitle>
-            <h1>{state.title}</h1>
-          </BoardTitle>
-          <BoardUser>
-            <h2>작성자: {state.name}</h2>
-            <h2>작성시간 : {state.time}</h2>
-          </BoardUser>
-          <BoardMain>
-            <h1>{state.text}</h1>
-          </BoardMain>
-          <BoardBtWrap>
-            <button onClick={() => moveToBoard()}>목록</button>
-          </BoardBtWrap>
-        </BoardDetailInfo>
+        <BoardDeatailWrap>
+          <BoardDetailInfo>
+            <BoardTitle>
+              <h1>{state.title}</h1>
+            </BoardTitle>
+            <BoardUser>
+              <p>작성자: {state.name}</p>
+              <p>작성시간 : {state.time}</p>
+            </BoardUser>
+            <BoardMain>
+              <h1>{state.text}</h1>
+            </BoardMain>
+            <BoardBtWrap>
+              <button onClick={() => moveToBoard()}>목록</button>
+            </BoardBtWrap>
+          </BoardDetailInfo>
+        </BoardDeatailWrap>
       </BoardDetailWrap>
     </BasicLayout>
   );

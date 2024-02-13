@@ -24,7 +24,7 @@ const FooterHead = styled.div`
   }
 `;
 
-const FooterHeadLeft = styled.div`
+const FooterLeft = styled.div`
   display: flex;
   font-size: 1rem;
   color: white;
@@ -39,15 +39,56 @@ const FooterHeadLeft = styled.div`
   }
 `;
 
+const FooterRight = styled.div`
+  img {
+    width: 40px;
+    margin-left: 20px;
+  }
+  @media screen and (max-width: 1248px) {
+    img {
+      width: 35px;
+      margin-left: 20px;
+    }
+  }
+  @media screen and (max-width: 849px) {
+    img {
+      width: 30px;
+      margin-left: 20px;
+    }
+  }
+`;
+
 const BasicFooter = () => {
   return (
     <FooterWrap>
       <FooterHead>
-        <FooterHeadLeft>
+        <FooterLeft>
           <h1>김민수의 포트폴리오</h1>
           <h1> © 2024 MovieView ㅡ @namsan01 </h1>
-        </FooterHeadLeft>
-        <div>뭐 쓰지</div>
+        </FooterLeft>
+        <FooterRight>
+          <a
+            href="https://github.com/namsan01"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={process.env.PUBLIC_URL + "/assets/images/github.png"} />
+          </a>
+          <a
+            href="https://gregarious-taxi-457.notion.site/6af78c7cb33448e58a98bd33cc6463dc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={process.env.PUBLIC_URL + "/assets/images/notion.png"} />
+          </a>
+          <a
+            href="mailto:v567v202@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={process.env.PUBLIC_URL + "/assets/images/mail.png"} />
+          </a>
+        </FooterRight>
       </FooterHead>
     </FooterWrap>
   );

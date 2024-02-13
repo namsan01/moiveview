@@ -25,8 +25,8 @@ const MovieBox: React.FC<MovieCardProps> = ({ movie, onClick }) => {
             <h1>{movie.title}</h1>
           </div>
           <div>
-            <h2>{`개봉 : ${movie.release_date}`}</h2>
-            <h2>{`평점 : ${movie.vote_average.toFixed(2)}`}</h2>
+            <p>{`개봉 : ${movie.release_date}`}</p>
+            <p>{`평점 : ${movie.vote_average.toFixed(2)}`}</p>
           </div>
         </MovieBoxInfo>
       </MovieBoxWrap>

@@ -1,5 +1,5 @@
 import { Pagination } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getNowMovie } from "../../api/movieApi";
 import MovieBox from "../../components/movie/MovieBox";
@@ -89,10 +89,9 @@ const MoviePage = () => {
     fetchData(categoryIndex);
   }, [categoryIndex]);
 
-  const MoviesPerPage = 6 * 2;
-  const indexOfLastMovie = page * MoviesPerPage;
-  const indexOfFirstMovie = indexOfLastMovie - MoviesPerPage;
-  const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
+  const limit = useRef<number>(12);
+  const offset = (page - 1) * limit.current;
+  const currentMovies = movies.slice(offset, offset + limit.current);
 
   const paginate = (pageNumber: number) => setPage(pageNumber);
 
@@ -155,7 +154,7 @@ const MoviePage = () => {
             <Pagination
               current={page}
               total={movies.length}
-              pageSize={MoviesPerPage}
+              pageSize={limit.current}
               onChange={paginate}
             />
           )}

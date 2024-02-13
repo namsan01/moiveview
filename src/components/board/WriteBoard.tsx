@@ -76,7 +76,7 @@ export default function WriteBoard() {
           <Form.Item
             label="내용"
             name="text"
-            rules={[{ required: true, message: "내용을 적어주세요 ^^" }]}
+            rules={[{ required: true, message: "내용을 입력은 필수입니다." }]}
             style={{
               padding: "15px",
               borderBottom: "1px solid #000",

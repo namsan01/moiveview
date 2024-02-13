@@ -68,7 +68,7 @@ const DetailRight = styled.div`
     font-size: 4rem;
     margin: 0.5rem 0;
   }
-  h2 {
+  p {
     font-size: 2.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -140,11 +140,11 @@ const MovieDetail = () => {
           <DetailRight>
             <DetailRightMain>
               <h1>제목 : {state && state.title}</h1>
-              <h2>{state && state.overview}</h2>
+              <p>{state && state.overview}</p>
             </DetailRightMain>
             <DetailRightEtc>
-              <h2>개봉일자 : {state && state.release_date}</h2>
-              <h2>평점 : {state && state.vote_average.toFixed(2)}</h2>
+              <p>개봉일자 : {state && state.release_date}</p>
+              <p>평점 : {state && state.vote_average.toFixed(2)}</p>
             </DetailRightEtc>
           </DetailRight>
         </DetailWrap>

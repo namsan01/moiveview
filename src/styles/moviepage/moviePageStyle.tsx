@@ -118,18 +118,26 @@ export const MovieBoxInfo = styled.div`
   h1 {
     margin: 0.2em 0;
     font-size: 2rem;
-  }
-  h2 {
     text-overflow: ellipsis;
     overflow: hidden;
     word-break: break-word;
     display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-word;
+    display: -webkit-box;
+    font-size: 2rem;
   }
   @media screen and (max-width: 1600px) {
     h1 {
       font-size: 2.5rem;
     }
-    h2 {
+    p {
       font-size: 1.8rem;
     }
   }

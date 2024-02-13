@@ -1,5 +1,5 @@
 import { Pagination } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getMyMovie } from "../api/movieApi";
 import MovieBox from "../components/movie/MovieBox";
@@ -28,7 +28,7 @@ export type MovieData = {
 const RecommendPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [page, setPage] = useState(1);
   const navigate = useNavigate();
 
   const fetchData = () => {
@@ -57,12 +57,11 @@ const RecommendPage = () => {
     fetchData();
   }, []);
 
-  const MoviesPerPage = 6 * 2;
-  const indexOfLastMovie = currentPage * MoviesPerPage;
-  const indexOfFirstMovie = indexOfLastMovie - MoviesPerPage;
-  const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
+  const limit = useRef<number>(12);
+  const offset = (page - 1) * limit.current;
+  const currentMovies = movies.slice(offset, offset + limit.current);
 
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber: number) => setPage(pageNumber);
 
   const onClickMoveToDetail = (movie: Movie) => {
     navigate(`/movie/detail/${movie.id}`, { state: movie });
@@ -97,9 +96,9 @@ const RecommendPage = () => {
         <MoviePagination>
           {!isLoading && movies.length > 13 && (
             <Pagination
-              current={currentPage}
+              current={page}
               total={movies.length}
-              pageSize={MoviesPerPage}
+              pageSize={limit.current}
               onChange={paginate}
             />
           )}
