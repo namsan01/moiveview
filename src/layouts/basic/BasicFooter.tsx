@@ -75,7 +75,7 @@ const BasicFooter = () => {
             <img src={process.env.PUBLIC_URL + "/assets/images/github.png"} />
           </a>
           <a
-            href="https://gregarious-taxi-457.notion.site/6af78c7cb33448e58a98bd33cc6463dc"
+            href="https://www.notion.so/e8a38dbf05a04fe198a0a55746ccba1e?pvs=4"
             target="_blank"
             rel="noopener noreferrer"
           >
