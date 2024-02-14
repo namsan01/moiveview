@@ -1,4 +1,6 @@
 import axios from "axios";
+import { MovieWithDates } from "../pages/movie/MoviePage";
+import { MovieData } from "../pages/RecommendPage";
 const API_Key = `18a644271c9033d356b4eac6bda58d4a`;
 
 const category_List = [
@@ -7,10 +9,10 @@ const category_List = [
 ];
 // 현재상영영화 가져오기
 export const getNowMovie = async (
-  successFn,
-  failFn,
-  errorFn,
-  categoryIndex,
+  successFn: (data: MovieWithDates) => void,
+  failFn: (error: string) => void,
+  errorFn: (error: string) => void,
+  categoryIndex: number,
 ) => {
   const host = `https://api.themoviedb.org/3/movie/${category_List[categoryIndex].url}?api_key=${API_Key}&language=ko-Kr&page=1`;
   try {
@@ -20,15 +22,18 @@ export const getNowMovie = async (
     if (status.charAt(0) === "2") {
       successFn(res.data);
     } else {
-      failFn("목록 호출 오류입니다.");
+      failFn("목록 호출에 실패했어요");
     }
   } catch (error) {
     errorFn("목록 호출 서버 에러에요");
-    // return error; // 필요하지 않은 부분이므로 주석 처리
   }
 };
 
-export const getMyMovie = async (successFn, failFn, errorFn) => {
+export const getMyMovie = async (
+  successFn: (data: MovieData) => void,
+  failFn: (error: string) => void,
+  errorFn: (error: string) => void,
+) => {
   const host = `https://api.themoviedb.org/3/account/20976968/favorite/movies?api_key=${API_Key}&language=ko-KR&page=1&session_id=3a3f233ca543d402e2e37b6248aaa4befeae83ba&sort_by=created_at.asc`;
   try {
     const res = await axios.get(host);

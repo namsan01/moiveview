@@ -23,15 +23,13 @@ export interface Movie {
   poster_path: string;
   overview?: string;
   vote_average: number;
-  maximun?: string;
-  minimum?: string;
 }
 
 export interface MovieData {
   results: Movie[];
 }
 
-interface MovieWithDates extends MovieData {
+export interface MovieWithDates extends MovieData {
   dates: {
     maximum?: string;
     minimum?: string;
@@ -71,12 +69,12 @@ const MoviePage = () => {
         setIsLoading(false);
       };
 
-      const failFn = (error: Error) => {
-        console.error("에러 메시지:", error.message);
+      const failFn = (error: string) => {
+        console.error("에러 메시지:", error);
       };
 
-      const errorFn = (error: Error) => {
-        console.error("에러:", error.message);
+      const errorFn = (error: string) => {
+        console.error("에러:", error);
       };
 
       await getNowMovie(successFn, failFn, errorFn, categoryIndex);

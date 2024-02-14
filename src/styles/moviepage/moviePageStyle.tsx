@@ -88,7 +88,7 @@ export const MovieBoxWrap = styled.div`
   margin-bottom: 50px;
   margin-right: 20px;
   padding: 10px;
-  background: #868686;
+  background: rgba(13, 37, 63, 0.8);
   cursor: pointer;
   img {
     width: 100%;

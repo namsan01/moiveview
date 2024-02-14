@@ -39,12 +39,12 @@ const RecommendPage = () => {
         console.log(data);
       };
 
-      const failFn = (error: Error) => {
-        console.error("에러 메시지:", error.message);
+      const failFn = (error: string) => {
+        console.error("에러 메시지:", error);
       };
 
-      const errorFn = (error: Error) => {
-        console.error("에러:", error.message);
+      const errorFn = (error: string) => {
+        console.error("에러:", error);
       };
 
       getMyMovie(successFn, failFn, errorFn);

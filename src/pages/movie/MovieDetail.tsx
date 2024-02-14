@@ -59,7 +59,7 @@ const DetailRight = styled.div`
   width: 700px;
   height: 525px;
   border-radius: 25px;
-  background: #d9d9d9;
+  background: rgba(13, 37, 63, 0.8);
   padding: 20px;
   display: flex;
   flex-direction: column;
