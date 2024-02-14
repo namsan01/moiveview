@@ -1,10 +1,12 @@
 안녕하세요 신입 프론트엔드 개발자 김민수입니다.
 
-Library: React
-CSS: styled-components
-UI Library: antd (Ant Design)
-Database: Firebase
-Use_language: TypeScript, JavaScript, prettier, eslint
+## 기술스택
+
+- Library: React
+- CSS: styled-components
+- UI Library: antd (Ant Design)
+- Database: Firebase
+- Use_language: TypeScript, JavaScript, prettier, eslint
 
 사용하여 제작하였습니다.
 
