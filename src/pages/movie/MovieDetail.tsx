@@ -129,6 +129,7 @@ const MovieDetail = () => {
           <DetailPrev onClick={() => moveToPrev()}>
             <img
               src={process.env.PUBLIC_URL + "/assets/images/bt_arrow.svg"}
+              alt="bt-arrow"
             ></img>
           </DetailPrev>
 

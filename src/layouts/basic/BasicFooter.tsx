@@ -72,21 +72,30 @@ const BasicFooter = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={process.env.PUBLIC_URL + "/assets/images/github.png"} />
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/github.png"}
+              alt="github"
+            />
           </a>
           <a
-            href="https://www.notion.so/e8a38dbf05a04fe198a0a55746ccba1e?pvs=4"
+            href="https://namsan01.notion.site/e8a38dbf05a04fe198a0a55746ccba1e?pvs=4"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={process.env.PUBLIC_URL + "/assets/images/notion.png"} />
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/notion.png"}
+              alt="notion"
+            />
           </a>
           <a
             href="mailto:v567v202@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={process.env.PUBLIC_URL + "/assets/images/mail.png"} />
+            <img
+              src={process.env.PUBLIC_URL + "/assets/images/mail.png"}
+              alt="mail"
+            />
           </a>
         </FooterRight>
       </FooterHead>
