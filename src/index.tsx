@@ -1,12 +1,13 @@
+import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./css/index.css";
 import "./css/normalize.css";
-import { createRoot } from "react-dom";
+import ReactDOM from "react-dom";
 
-const root = createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <BrowserRouter>
     <App />
   </BrowserRouter>,
+  document.getElementById("root"),
 );
