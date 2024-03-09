@@ -1,7 +1,10 @@
 import axios from "axios";
 import { MovieWithDates } from "../pages/movie/MoviePage";
 import { MovieData } from "../pages/RecommendPage";
-const API_Key = `18a644271c9033d356b4eac6bda58d4a`;
+import {} from "../";
+
+const API_Key = process.env.React_APP_API_Key;
+const Section_Key = process.env.React_APP_Section_key;
 
 const category_List = [
   { id: 0, label: "현재 상영작", url: "/now_playing" },
@@ -34,7 +37,7 @@ export const getMyMovie = async (
   failFn: (error: string) => void,
   errorFn: (error: string) => void,
 ) => {
-  const host = `https://api.themoviedb.org/3/account/20976968/favorite/movies?api_key=${API_Key}&language=ko-KR&page=1&session_id=3a3f233ca543d402e2e37b6248aaa4befeae83ba&sort_by=created_at.asc`;
+  const host = `https://api.themoviedb.org/3/account/20976968/favorite/movies?api_key=${API_Key}&language=ko-KR&page=1&session_id=${Section_Key}&sort_by=created_at.asc`;
   try {
     const res = await axios.get(host);
     const status = res.status.toString();

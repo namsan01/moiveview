@@ -11,13 +11,13 @@ import {
 import { DocumentData } from "firebase/firestore/lite";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD9zU_gimKGw1YJT6xxe0NRxZ-9lx548e8",
-  authDomain: "mymovie-e86ff.firebaseapp.com",
-  projectId: "mymovie-e86ff",
-  storageBucket: "mymovie-e86ff.appspot.com",
-  messagingSenderId: "473665212869",
-  appId: "1:473665212869:web:be10bdb397b581f87d3bac",
-  measurementId: "G-HETR1PQFSH",
+  apiKey: process.env.React_APP_FB_apiKey,
+  authDomain: process.env.React_APP_FB_authDomain,
+  projectId: process.env.React_APP_FB_projectId,
+  storageBucket: process.env.React_APP_FB_storageBucket,
+  messagingSenderId: process.env.React_APP_FB_messagingSenderId,
+  appId: process.env.React_APP_FB_appId,
+  measurementId: process.env.React_APP_FB_measurementId,
 };
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);

@@ -6,6 +6,7 @@ import BoardWritePage from "./pages/board/BoardWritePage";
 import MovieDetail from "./pages/movie/MovieDetail";
 import MoviePage from "./pages/movie/MoviePage";
 import BoardDetail from "./components/board/BoardDetail";
+import ErrorPage from "./pages/error/ErrorPage";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/board" element={<BoardPage />}></Route>
         <Route path="/board/:id" element={<BoardDetail />}></Route>
         <Route path="/board/write" element={<BoardWritePage />} />
+        <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
     </div>
   );
